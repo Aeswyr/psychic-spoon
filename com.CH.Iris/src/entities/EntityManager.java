@@ -19,8 +19,8 @@ public class EntityManager {
 		}
 		for (Entity e : remove) {
 			entities.remove(e);
-			remove.remove(e);
 		}
+		remove.clear();
 	}
 	
 	public void render(Graphics g) {
