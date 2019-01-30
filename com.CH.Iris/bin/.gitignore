@@ -1,8 +1,5 @@
-/game/
-/runtime/
-<<<<<<< HEAD
 /entites/
-=======
+/game/
 /gfx/
+/runtime/
 /utility/
->>>>>>> branch 'master' of https://github.com/Aeswyr/psychic-spoon.git
