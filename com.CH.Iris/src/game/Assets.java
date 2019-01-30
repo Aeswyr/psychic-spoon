@@ -5,8 +5,8 @@ import gfx.SpriteSheet;
 
 public class Assets {
 
-	private static final String ENTITY = "./res/entity/";
-	private static final String WORLD = "./res/world/";
+	private static final String ENTITY = "/entity/";
+	private static final String WORLD = "/world/";
 	
 	private static SpriteSheet s_tile;
 	private static SpriteSheet s_ship;
