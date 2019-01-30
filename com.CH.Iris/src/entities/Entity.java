@@ -12,4 +12,12 @@ public abstract class Entity {
 
     public abstract void update();
     public abstract void render(Graphics g);
+    
+    public int getXPos() {
+        return this.xPos;
+    }
+    
+    public int getYPos() {
+        return this.yPos;
+    }
 }
