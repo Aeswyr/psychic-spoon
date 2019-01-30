@@ -1,4 +1,4 @@
-package entites;
+package entities;
 
 import runtime.Handler;
 import java.awt.Graphics;
