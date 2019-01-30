@@ -3,6 +3,8 @@ package game;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
+import javax.swing.JFrame;
+
 import runtime.Handler;
 
 public class Game implements Runnable{
@@ -13,8 +15,6 @@ public class Game implements Runnable{
 	private BufferStrategy bs;
 	private Graphics g;
 	private Handler handler;
-	
-	public static final int GAMESCALE = 3;
 	
 	public Game() {
 		
@@ -36,8 +36,7 @@ public class Game implements Runnable{
 		long delta = 1000000000 / 60;
 		int fps = 0;
 		long lastFPS = System.nanoTime();
-		long deltaFPS = 1000000000;
-		
+		long deltaFPS = 1000000000;		
 		
 		while (running) {
 			long currentTime = System.nanoTime();
@@ -55,10 +54,7 @@ public class Game implements Runnable{
 			fps = 0;
 			lastFPS = currentTime;
 			}
-			
-		}
-		
-		
+		}		
 	}
 	
 	
