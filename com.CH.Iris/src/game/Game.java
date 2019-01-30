@@ -3,8 +3,6 @@ package game;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
-import javax.swing.JFrame;
-
 import runtime.Handler;
 
 public class Game implements Runnable{
@@ -15,6 +13,8 @@ public class Game implements Runnable{
 	private BufferStrategy bs;
 	private Graphics g;
 	private Handler handler;
+	
+	public static int GAMESCALE = 3;
 	
 	public Game() {
 		

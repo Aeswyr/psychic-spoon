@@ -3,13 +3,15 @@ package world;
 import java.awt.Graphics;
 
 import entities.EntityManager;
+import entities.SpaceShip;
 
 public class World {
 	
 	EntityManager entityManager;
 	
-	public World() {
+	public World(SpaceShip ship) {
 		entityManager = new EntityManager();
+		entityManager.add(ship);
 	}
 	
 	

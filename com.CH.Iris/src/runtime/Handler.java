@@ -2,14 +2,16 @@ package runtime;
 
 import java.awt.Graphics;
 import entities.SpaceShip;
-import game.Assets;
+import world.World;
 
 public class Handler {
 
 	SpaceShip ship;
+	World world;
 	
 	public Handler() {
 		ship = new SpaceShip(this, 0, 0);
+		world = new World(ship);
 	}
 	
 	public void render(Graphics g) {
