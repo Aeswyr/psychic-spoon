@@ -7,7 +7,7 @@ import gfx.Sprite;
 
 public class SpaceShip extends Entity{
     
-    protected SpaceShip(Handler theHandler, int xPos, int yPos) {
+    public SpaceShip(Handler theHandler, int xPos, int yPos) {
         
         super.theHandler = theHandler;
         super.xPos = xPos;
