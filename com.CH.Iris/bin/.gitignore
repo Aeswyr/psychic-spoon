@@ -1,9 +1,7 @@
-<<<<<<< HEAD
-/entity/
-/world/
-=======
-/game/
 /entities/
->>>>>>> branch 'master' of https://github.com/Aeswyr/psychic-spoon.git
+/entity/
+/game/
 /gfx/
 /runtime/
+/utility/
+/world/
