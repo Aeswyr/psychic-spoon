@@ -25,14 +25,15 @@ public class Hitbox {
 	// Position of the current object
 	private int positionX;
 	private int positionY;
+		
 	
-	// Entity being compared to the current object
-	private Entity e2;
-	
-	
-	public Hitbox(int height, int width) {
+	public Hitbox(int height, int width, int offsetX, int offsetY, int eOffsetX, int eOffsetY) {
 		this.height = height;
 		this.width = width;
+		this.offsetX = offsetX;
+		this.offsetY = offsetY;
+		this.eOffsetX = eOffsetX;
+		this.eOffsetY = eOffsetY;
 	}	
 	
 	/*
@@ -49,9 +50,9 @@ public class Hitbox {
 		eHeight = e2.getHeight();
 		
 		
-		if (positionX > e2.getXPos() && positionX < e2.getXPos() + eWidth) {
+		if (positionX + offsetX > e2.getXPos() + offsetX + eOffsetX && positionXR < e2.getXPos() + eWidth) {
 			
-			if (positionY < e2.getYPos() && positionY > e2.getYPos() + eHeight) {
+			if (positionY + offsetY < e2.getYPos() + offsetY + eOffsetY && positionYB > e2.getYPos() + eHeight) {
 				return true;
 			}
 			
@@ -60,5 +61,10 @@ public class Hitbox {
 		return false;
 				
 	}
+	
+	public void update() {
+		
+	}
+	
 	
 }
