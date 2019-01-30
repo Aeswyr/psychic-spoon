@@ -6,8 +6,8 @@ import gfx.Sprite;
 
 public abstract class Entity {
     protected Handler theHandler;
-    protected int xPos;
-    protected int yPos;
+    protected int xPos, yPos;
+    protected int width, height;
     protected Sprite sprite; 
 
     public abstract void update();
@@ -19,5 +19,13 @@ public abstract class Entity {
     
     public int getYPos() {
         return this.yPos;
+    }
+    
+    public int getWidth() {
+    	return width;
+    }
+    
+    public int getHeight() {
+    	return height;
     }
 }
