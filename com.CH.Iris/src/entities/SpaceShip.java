@@ -22,7 +22,6 @@ public class SpaceShip extends Entity{
     }
     
     public void render(Graphics g) {
-        
         sprite.render(xPos, yPos, g);
         
     }

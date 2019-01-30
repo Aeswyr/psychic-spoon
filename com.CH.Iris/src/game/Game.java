@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
@@ -26,7 +27,7 @@ public class Game implements Runnable{
 	
 	public void setup() {
 		screen = new Screen();
-
+		screen.setBackground(Color.BLACK);
 	}
 
 	@Override
