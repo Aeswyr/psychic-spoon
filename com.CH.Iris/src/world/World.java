@@ -3,6 +3,7 @@ package world;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
+import entities.Alien;
 import entities.Asteroid;
 import entities.Entity;
 import entities.EntityManager;
@@ -25,6 +26,7 @@ public class World {
 	
 	int nextAsteroid = 1;
 	int nextPowerup = 120;
+	int nextAlien = 520;
 	
 	ArrayList<Tile[]> tiles;
 	
@@ -63,7 +65,7 @@ public class World {
 			entityManager.add(new Asteroid(handler, (int)(Math.random() * 800), ship.getYPos() - 800));
 		}
 		if (count % nextPowerup == 0) {
-			nextPowerup = (int)(Math.random() * 240 + 120);
+			nextPowerup = (int)(Math.random() * 240 + 240);
 			
 			switch ((int)(Math.random() * 3)) {
 			case 0:
@@ -77,6 +79,11 @@ public class World {
 				break;
 			}
 			
+		}
+		
+		if (count % nextAlien == 0) {
+			nextAlien = (int)(Math.random() * 360 + 720);
+			entityManager.add(new Alien(handler, (int)(Math.random() * 800), ship.getYPos() - 800));
 		}
 		
 		

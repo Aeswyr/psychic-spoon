@@ -28,6 +28,7 @@ public class Repair extends Entity{
 		hitbox.update();
 		if (this.hitbox.contains(theHandler.getPlayer().getHitBox()))
 			theHandler.getPlayer().repair();
+		theHandler.getWorld().removeEntity(this);
 	}
 
 	@Override

@@ -61,10 +61,11 @@ public class SpaceShip extends Entity{
     
     public void damage() {
     	this.lives--;
+    	if (lives < 0) theHandler.getWorld().removeEntity(this);
     }
     
     public void repair() {
-    	this.lives++;
+    	if (lives < 5) this.lives++;
     }
     
     public void renderUI(Graphics g) {
