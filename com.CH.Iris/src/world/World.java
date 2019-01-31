@@ -10,10 +10,8 @@ import entities.Power;
 import entities.Repair;
 import entities.SpaceShip;
 import entities.Super;
-import game.Assets;
 import game.Game;
 import game.Screen;
-import gfx.Sprite;
 import runtime.Handler;
 
 public class World {
