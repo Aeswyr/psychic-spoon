@@ -31,6 +31,7 @@ public class Hitbox {
 		this.width = width;
 		this.offsetX = offsetX;
 		this.offsetY = offsetY;
+		this.e = e;
 		positionX = e.getXPos();
 		positionY = e.getYPos();
 	}

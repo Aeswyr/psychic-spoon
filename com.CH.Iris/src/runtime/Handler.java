@@ -40,4 +40,8 @@ public class Handler {
 		return camera;
 	}
 	
+	public SpaceShip getPlayer() {
+		return ship;
+	}
+	
 }

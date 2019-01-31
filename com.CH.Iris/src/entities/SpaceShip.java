@@ -2,7 +2,9 @@ package entities;
 
 import java.awt.Graphics;
 import game.Assets;
+import game.Game;
 import runtime.Handler;
+import utility.Hitbox;
 import gfx.Sprite;
 
 public class SpaceShip extends Entity{
@@ -13,12 +15,13 @@ public class SpaceShip extends Entity{
         super.xPos = xPos;
         super.yPos = yPos;
         super.sprite = Assets.ship;
-        
+        this.hitbox = new Hitbox(this, 7 * Game.GAMESCALE, 15 * Game.GAMESCALE, 5 * Game.GAMESCALE, 0);
         
     }
     
     public void update() {
         move();
+        this.hitbox.update();
         theHandler.getCamera().centerOnEntity(this);
     }
     
