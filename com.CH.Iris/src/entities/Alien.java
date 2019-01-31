@@ -21,7 +21,7 @@ public class Alien extends Entity {
         super.sprite = Assets.alien;
         
         this.height = 16;
-        this.width = 1;
+        this.width = 16;
         
         this.hitbox = new Hitbox(this, height * Game.GAMESCALE, width * Game.GAMESCALE, 0, 0);
         this.xSpeed = 0;
