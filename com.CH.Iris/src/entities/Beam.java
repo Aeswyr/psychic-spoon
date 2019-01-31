@@ -36,7 +36,7 @@ public class Beam extends Entity{
 		for (Entity e : theHandler.getWorld().getEntities()) {
 			if (e instanceof Beam || e instanceof SuperBeam) {
 			} else {
-				if (this.hitbox.contains(e)) {
+				if (this.hitbox.contains(e.getHitBox())) {
 					theHandler.getWorld().removeEntity(e);
 					theHandler.getWorld().removeEntity(this);
 				}

@@ -32,7 +32,7 @@ public class Asteroid extends Entity {
 	public void update() {
 		move();
 		hitbox.update();
-		if (this.hitbox.contains(theHandler.getPlayer())) {
+		if (this.hitbox.contains(theHandler.getPlayer().getHitBox())) {
 			theHandler.getPlayer().damage();
 			theHandler.getWorld().removeEntity(this);
 		}

@@ -35,7 +35,7 @@ public class SuperBeam extends Entity{
 		for (Entity e : theHandler.getWorld().getEntities()) {
 			if (e instanceof Beam || e instanceof SuperBeam) {
 			} else {
-				if (this.hitbox.contains(e)) {
+				if (this.hitbox.contains(e.getHitBox())) {
 					theHandler.getWorld().removeEntity(e);
 					theHandler.getWorld().addEntity(new Beam(theHandler, xPos, yPos, 2, -10));
 					theHandler.getWorld().addEntity(new Beam(theHandler, xPos, yPos, 0, -10));
