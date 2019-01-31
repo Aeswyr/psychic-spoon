@@ -8,7 +8,10 @@ import utility.Hitbox;
 import gfx.Sprite;
 
 public class SpaceShip extends Entity{
+	
     private static int moveMent = 5;
+    int lives = 3;
+    
     public SpaceShip(Handler theHandler, int xPos, int yPos) {
         
         super.theHandler = theHandler;
@@ -27,7 +30,7 @@ public class SpaceShip extends Entity{
     
     public void render(Graphics g) {
         sprite.render(xPos - theHandler.getCamera().xOffset(), yPos - theHandler.getCamera().yOffset(), g);
-        
+        renderUI(g);
     }
 
     public void move() {
@@ -41,5 +44,16 @@ public class SpaceShip extends Entity{
       yPos -= 3;
       
     }
+    
+    public void damage() {
+    	this.lives--;
+    }
+    
+    public void renderUI(Graphics g) {
+    	for (int i = 0; i < lives; i++) {
+    		Assets.ship.render(64 * i, 550, g);
+    	}
+    }
+    
 
 }
