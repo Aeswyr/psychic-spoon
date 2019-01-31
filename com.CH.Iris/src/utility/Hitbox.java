@@ -35,7 +35,31 @@ public class Hitbox {
 	 * 
 	 */
 	public boolean contains(Hitbox h) {
-		
+
+		if (this.getBounds()[0] > h.getBounds()[0] && this.getBounds()[0] < h.getBounds()[2]) {
+
+			if (this.getBounds()[1] > h.getBounds()[1] && this.getBounds()[1] < h.getBounds()[3]) {
+				return true;
+			}
+
+			if (this.getBounds()[3] > h.getBounds()[1] && this.getBounds()[3] < h.getBounds()[3]) {
+				return true;
+			}
+
+		}
+
+		if (this.getBounds()[2] > h.getBounds()[0] && this.getBounds()[2] < h.getBounds()[2]) {
+
+			if (this.getBounds()[1] > h.getBounds()[1] && this.getBounds()[1] < h.getBounds()[3]) {
+				return true;
+			}
+
+			if (this.getBounds()[3] > h.getBounds()[1] && this.getBounds()[3] < h.getBounds()[3]) {
+				return true;
+			}
+
+		}
+
 		return false;
 	}
 
@@ -43,15 +67,11 @@ public class Hitbox {
 		positionX = e.getXPos();
 		positionY = e.getYPos();
 	}
-	
+
 	public int[] getBounds() {
-		int[] bounds =  {
-			this.positionX + this.offsetX,
-			this.positionY + this.offsetY,
-			this.positionX + this.offsetX + this.width,
-			this.positionY + this.offsetY + this.height
-		};
-		
+		int[] bounds = { this.positionX + this.offsetX, this.positionY + this.offsetY,
+				this.positionX + this.offsetX + this.width, this.positionY + this.offsetY + this.height };
+
 		return bounds;
 	}
 
