@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
 
-	public boolean left, right;
+	public boolean left, right, space;
 	boolean[] keys = new boolean[256];
 
 	@Override
@@ -32,6 +32,7 @@ public class KeyHandler implements KeyListener {
 		
 		left = keys[KeyEvent.VK_A] || keys[KeyEvent.VK_LEFT];
 		right =  keys[KeyEvent.VK_D] || keys[KeyEvent.VK_RIGHT];
+		space = keys[KeyEvent.VK_SPACE];
 		
 	}
 	

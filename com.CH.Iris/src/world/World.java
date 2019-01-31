@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import entities.Asteroid;
 import entities.Entity;
 import entities.EntityManager;
+import entities.Power;
+import entities.Repair;
 import entities.SpaceShip;
+import entities.Super;
 import game.Assets;
 import game.Game;
 import game.Screen;
@@ -21,6 +24,9 @@ public class World {
 	SpaceShip ship;
 	int bottomline;
 	int lineNumber;
+	
+	int nextAsteroid = 1;
+	int nextPowerup = 120;
 	
 	ArrayList<Tile[]> tiles;
 	
@@ -54,9 +60,27 @@ public class World {
 	public void update() {
 		entityManager.update();
 		
-		if (count % (int)(Math.random() * 120 + 1) == 0) {
+		if (count % nextAsteroid == 0) {
+			nextAsteroid = (int)(Math.random() * 30 + 1);
 			entityManager.add(new Asteroid(handler, (int)(Math.random() * 800), ship.getYPos() - 800));
 		}
+		if (count % nextPowerup == 0) {
+			nextPowerup = (int)(Math.random() * 240 + 120);
+			
+			switch ((int)(Math.random() * 3)) {
+			case 0:
+				entityManager.add(new Super(handler, (int)(Math.random() * 800), ship.getYPos() - 800));
+				break;
+			case 1:
+				entityManager.add(new Power(handler, (int)(Math.random() * 800), ship.getYPos() - 800));
+				break;
+			case 2:
+				entityManager.add(new Repair(handler, (int)(Math.random() * 800), ship.getYPos() - 800));
+				break;
+			}
+			
+		}
+		
 		
 		count++;
 		updateTiles();
@@ -91,5 +115,9 @@ public class World {
 	
 	public void removeEntity(Entity e) {
 		entityManager.remove(e);
+	}
+	
+	public ArrayList<Entity> getEntities() {
+		return entityManager.getEntities();
 	}
 }
