@@ -8,17 +8,9 @@ public class Hitbox {
 	private int height;
 	private int width;
 
-	// Height and width of another enity
-	private int eHeight;
-	private int eWidth;
-
 	// Offset to trim the hitbox of the current object
 	private int offsetX;
 	private int offsetY;
-
-	// Offset to trim the hitbox of another entity
-	private int eOffsetX;
-	private int eOffsetY;
 
 	// Position of the current object
 	private int positionX;
@@ -42,36 +34,25 @@ public class Hitbox {
 	 * 
 	 * 
 	 */
-	public boolean contains(Entity e2) {
+	public boolean contains(Hitbox h) {
 		
-		int positionXR = positionX + width;
-		int positionYB = positionY + height;
-		eWidth = e2.getWidth();
-		eHeight = e2.getHeight();
-
-		if (positionX + offsetX > e2.getXPos() + eOffsetX && positionXR < e2.getXPos() + eWidth) {
-
-			if (positionY + offsetY < e2.getYPos() + offsetY + eOffsetY && positionY + offsetY > e2.getYPos() + eHeight) {
-				return true;
-			}
-
-		}
-
-		if (positionXR + offsetX > e2.getXPos() + offsetX + eOffsetX && positionX + offsetX < e2.getXPos() + eWidth) {
-
-			if (positionYB < e2.getYPos() + offsetY + eOffsetY && positionYB > e2.getYPos() + eHeight) {
-				return true;
-			}
-
-		}
-
 		return false;
-	
 	}
 
 	public void update() {
 		positionX = e.getXPos();
 		positionY = e.getYPos();
+	}
+	
+	public int[] getBounds() {
+		int[] bounds =  {
+			this.positionX + this.offsetX,
+			this.positionY + this.offsetY,
+			this.positionX + this.offsetX + this.width,
+			this.positionY + this.offsetY + this.height
+		};
+		
+		return bounds;
 	}
 
 }
