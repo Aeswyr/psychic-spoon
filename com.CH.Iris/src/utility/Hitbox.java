@@ -8,17 +8,9 @@ public class Hitbox {
 	private int height;
 	private int width;
 
-	// Height and width of another enity
-	private int eHeight;
-	private int eWidth;
-
 	// Offset to trim the hitbox of the current object
 	private int offsetX;
 	private int offsetY;
-
-	// Offset to trim the hitbox of another entity
-	private int eOffsetX;
-	private int eOffsetY;
 
 	// Position of the current object
 	private int positionX;
