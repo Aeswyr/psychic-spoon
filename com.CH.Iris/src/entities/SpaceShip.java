@@ -6,7 +6,7 @@ import runtime.Handler;
 import gfx.Sprite;
 
 public class SpaceShip extends Entity{
-    private static int moveMent = 10;
+    private static int moveMent = 5;
     public SpaceShip(Handler theHandler, int xPos, int yPos) {
         
         super.theHandler = theHandler;
@@ -19,10 +19,11 @@ public class SpaceShip extends Entity{
     
     public void update() {
         move();
+        theHandler.getCamera().centerOnEntity(this);
     }
     
     public void render(Graphics g) {
-        sprite.render(xPos, yPos, g);
+        sprite.render(xPos - theHandler.getCamera().xOffset(), yPos - theHandler.getCamera().yOffset(), g);
         
     }
 
@@ -34,6 +35,8 @@ public class SpaceShip extends Entity{
       if(theHandler.getKeyHandler().right && xPos < 800 - 58) {
         xPos += moveMent;
       }
+      yPos -= 3;
+      
     }
 
 }

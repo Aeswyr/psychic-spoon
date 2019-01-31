@@ -12,12 +12,15 @@ public class World {
 	
 	EntityManager entityManager;
 	Handler handler;
+	int count = 0;
+	SpaceShip ship;
 	
 	public World(SpaceShip ship, Handler handler) {
 		entityManager = new EntityManager();
 		this.handler = handler;
+		this.ship = ship;
 		entityManager.add(ship);
-		entityManager.add(new Asteroid(handler, 15, 150));
+		
 	}
 	
 	public int getWidth() {
@@ -30,6 +33,18 @@ public class World {
 	
 	public void update() {
 		entityManager.update();
+		
+		
+		
+		if (count % (int)(Math.random() * 120 + 1) == 0) {
+			entityManager.add(new Asteroid(handler, (int)(Math.random() * 800), ship.getYPos() - 800));
+		}
+		
+		
+		count++;
+		
+		
+		
 	}
 	
 	public void render(Graphics g) {

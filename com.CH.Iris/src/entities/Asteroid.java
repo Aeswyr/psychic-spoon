@@ -23,7 +23,7 @@ public class Asteroid extends Entity {
 
 	public void render(Graphics g) {
 
-		sprite.render(xPos, xPos, g);
+		sprite.render(xPos - theHandler.getCamera().xOffset(), yPos - theHandler.getCamera().yOffset(), g);
 
 	}
 

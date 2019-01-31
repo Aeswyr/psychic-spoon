@@ -26,11 +26,9 @@ public class Camera {
 	    if (xOffset < 0)
 	      xOffset = 0;
 
-	    yOffset = e.getYPos() - HEIGHT / 2;
+	    yOffset = e.getYPos() - HEIGHT + 128;
 	    if (yOffset > handler.getWorld().getHeight() - HEIGHT)
 	      yOffset = handler.getWorld().getHeight() - HEIGHT;
-	    if (yOffset < 0)
-	      yOffset = 0;
 	  }
 
 	  public int xOffset() {
