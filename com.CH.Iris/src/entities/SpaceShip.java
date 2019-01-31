@@ -18,7 +18,7 @@ public class SpaceShip extends Entity{
     }
     
     public void update() {
-        
+        move();
     }
     
     public void render(Graphics g) {
@@ -26,5 +26,13 @@ public class SpaceShip extends Entity{
         
     }
     
+    public void move() {
+      if(theHandler.getKeyHandler().left && xPos > 10) {
+        xPos -= 10;
+      }
+      if(theHandler.getKeyHandler().right && xPos < 800 - 58) {
+        xPos += 10;
+      }
+    }
 
 }

@@ -60,7 +60,7 @@ public class Game implements Runnable{
 	
 	
 	public void update() {
-		
+		handler.update();
 	}
 	
 	public void render() {
