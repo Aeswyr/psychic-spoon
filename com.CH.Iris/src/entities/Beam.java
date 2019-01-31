@@ -1,8 +1,6 @@
 package entities;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
-
 import game.Assets;
 import game.Game;
 import runtime.Handler;

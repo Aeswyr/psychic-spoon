@@ -7,12 +7,12 @@ import game.Assets;
 import game.Game;
 import runtime.Handler;
 import utility.Hitbox;
-import gfx.Sprite;
+
 
 public class SpaceShip extends Entity{
 	
     private static int moveMent = 5;
-    int lives = 3;
+    int lives = 2;
     boolean fired = false;
     
     ArrayList<Entity> attacks;

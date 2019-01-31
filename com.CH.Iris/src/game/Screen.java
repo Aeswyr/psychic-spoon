@@ -9,6 +9,10 @@ import input.KeyHandler;
 
 public class Screen extends Canvas { 
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static Dimension dim;
 	private JFrame frame;
 	

@@ -1,10 +1,8 @@
 package entities;
 
 import java.awt.Graphics;
-
 import game.Assets;
 import game.Game;
-import gfx.Sprite;
 import runtime.Handler;
 import utility.Hitbox;
 
