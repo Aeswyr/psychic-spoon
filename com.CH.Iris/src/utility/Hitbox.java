@@ -59,6 +59,32 @@ public class Hitbox {
 			}
 
 		}
+		
+		
+		
+		if (h.getBounds()[0] > this.getBounds()[0] && h.getBounds()[0] < this.getBounds()[2]) {
+
+			if (h.getBounds()[1] > this.getBounds()[1] && h.getBounds()[1] < this.getBounds()[3]) {
+				return true;
+			}
+
+			if (h.getBounds()[3] > this.getBounds()[1] && h.getBounds()[3] < this.getBounds()[3]) {
+				return true;
+			}
+
+		}
+
+		if (h.getBounds()[2] > this.getBounds()[0] && h.getBounds()[2] < this.getBounds()[2]) {
+
+			if (h.getBounds()[1] > this.getBounds()[1] && h.getBounds()[1] < this.getBounds()[3]) {
+				return true;
+			}
+
+			if (h.getBounds()[3] > this.getBounds()[1] && h.getBounds()[3] < this.getBounds()[3]) {
+				return true;
+			}
+
+		}
 
 		return false;
 	}
