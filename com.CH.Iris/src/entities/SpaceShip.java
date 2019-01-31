@@ -25,7 +25,7 @@ public class SpaceShip extends Entity{
         sprite.render(xPos, yPos, g);
         
     }
-    
+
     public void move() {
       if(theHandler.getKeyHandler().left && xPos > 10) {
         xPos -= 10;
