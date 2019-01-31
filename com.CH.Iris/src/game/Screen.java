@@ -9,7 +9,7 @@ import input.KeyHandler;
 
 public class Screen extends Canvas { 
 
-	private Dimension dim;
+	public static Dimension dim;
 	private JFrame frame;
 	
 	public Screen() {

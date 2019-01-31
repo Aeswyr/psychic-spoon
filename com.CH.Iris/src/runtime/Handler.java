@@ -30,4 +30,8 @@ public class Handler {
 		return keyHandler;
 	}
 	
+	public World getWorld() {
+		return world;
+	}
+	
 }

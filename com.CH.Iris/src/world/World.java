@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import entities.EntityManager;
 import entities.SpaceShip;
+import game.Screen;
 
 public class World {
 	
@@ -14,6 +15,13 @@ public class World {
 		entityManager.add(ship);
 	}
 	
+	public int getWidth() {
+		return (int)Screen.dim.getWidth();
+	}
+	
+	public int getHeight() {
+		return (int)Screen.dim.getHeight();
+	}
 	
 	public void update() {
 		entityManager.update();
