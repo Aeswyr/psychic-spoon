@@ -14,7 +14,7 @@ public class Handler {
 	public Handler() {
 		keyHandler = new KeyHandler();
 		ship = new SpaceShip(this, 360, 500);
-		world = new World(ship);
+		world = new World(ship, this);
 	}
 	
 	public void render(Graphics g) {

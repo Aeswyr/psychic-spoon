@@ -1,17 +1,19 @@
 package entities;
 
 import java.awt.Graphics;
+
+import game.Assets;
 import gfx.Sprite;
 import runtime.Handler;
 
 public class Asteroid extends Entity {
 
-	public Asteroid(Handler theHandler, int xPos, int yPos, Sprite sprite) {
+	public Asteroid(Handler theHandler, int xPos, int yPos) {
 
 		super.theHandler = theHandler;
 		super.xPos = xPos;
 		super.yPos = yPos;
-		super.sprite = sprite;
+		super.sprite = Assets.asteroid;
 
 	}
 
