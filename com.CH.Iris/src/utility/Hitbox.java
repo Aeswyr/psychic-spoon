@@ -26,8 +26,9 @@ public class Hitbox {
 	private int positionX;
 	private int positionY;
 		
+	private Entity e;
 	
-	public Hitbox(int height, int width, int offsetX, int offsetY, int eOffsetX, int eOffsetY) {
+	public Hitbox(Entity e, int height, int width, int offsetX, int offsetY, int eOffsetX, int eOffsetY) {
 		this.height = height;
 		this.width = width;
 		this.offsetX = offsetX;
@@ -63,7 +64,8 @@ public class Hitbox {
 	}
 	
 	public void update() {
-		
+		positionX = e.getXPos();
+		positionY = e.getYPos();
 	}
 	
 	
