@@ -43,13 +43,13 @@ public class Hitbox {
 	 * 
 	 */
 	public boolean contains(Entity e2) {
-
+		
 		int positionXR = positionX + width;
 		int positionYB = positionY + height;
 		eWidth = e2.getWidth();
 		eHeight = e2.getHeight();
 
-		if (positionX + offsetX > e2.getXPos() + offsetX + eOffsetX && positionX + offsetX < e2.getXPos() + eWidth) {
+		if (positionX + offsetX > e2.getXPos() + eOffsetX && positionXR < e2.getXPos() + eWidth) {
 
 			if (positionY + offsetY < e2.getYPos() + offsetY + eOffsetY && positionY + offsetY > e2.getYPos() + eHeight) {
 				return true;
@@ -57,7 +57,7 @@ public class Hitbox {
 
 		}
 
-		if (positionXR > e2.getXPos() + offsetX + eOffsetX && positionXR < e2.getXPos() + eWidth) {
+		if (positionXR + offsetX > e2.getXPos() + offsetX + eOffsetX && positionX + offsetX < e2.getXPos() + eWidth) {
 
 			if (positionYB < e2.getYPos() + offsetY + eOffsetY && positionYB > e2.getYPos() + eHeight) {
 				return true;
@@ -66,7 +66,7 @@ public class Hitbox {
 		}
 
 		return false;
-
+	
 	}
 
 	public void update() {
