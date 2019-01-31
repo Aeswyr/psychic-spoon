@@ -1,10 +1,13 @@
 package world;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import entities.Asteroid;
+import entities.Entity;
 import entities.EntityManager;
 import entities.SpaceShip;
+import game.Game;
 import game.Screen;
 import runtime.Handler;
 
@@ -15,11 +18,17 @@ public class World {
 	int count = 0;
 	SpaceShip ship;
 	
+	int topline;
+	int bottomline;
+	ArrayList<Tile[]> tiles;
+	
 	public World(SpaceShip ship, Handler handler) {
 		entityManager = new EntityManager();
 		this.handler = handler;
 		this.ship = ship;
 		entityManager.add(ship);
+		
+		topline = ship.getYPos()-Game.GAMESCALE*16*20;
 		
 	}
 	
@@ -49,5 +58,13 @@ public class World {
 	
 	public void render(Graphics g) {
 		entityManager.render(g);
+	}
+	
+	public void addEntity(Entity e) {
+		entityManager.add(e);
+	}
+	
+	public void removeEntity(Entity e) {
+		entityManager.remove(e);
 	}
 }
