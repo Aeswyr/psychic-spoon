@@ -2,15 +2,18 @@ package runtime;
 
 import java.awt.Graphics;
 import entities.SpaceShip;
+import input.KeyHandler;
 import world.World;
 
 public class Handler {
 
+	KeyHandler keyHandler;
 	SpaceShip ship;
 	World world;
 	
 	public Handler() {
-		ship = new SpaceShip(this, 160, 160);
+		keyHandler = new KeyHandler();
+		ship = new SpaceShip(this, 0, 0);
 		world = new World(ship);
 	}
 	
@@ -19,7 +22,12 @@ public class Handler {
 	}
 	
 	public void update() {
+		keyHandler.update();
 		world.update();
+	}
+	
+	public KeyHandler getKeyHandler() {
+		return keyHandler;
 	}
 	
 }
