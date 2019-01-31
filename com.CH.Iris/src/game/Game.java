@@ -21,7 +21,7 @@ public class Game implements Runnable{
 		
 		setup();
 		handler = new Handler();
-		
+		screen.addListener(handler.getKeyHandler());
 		
 	}
 	

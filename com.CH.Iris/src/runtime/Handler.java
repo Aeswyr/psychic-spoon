@@ -13,7 +13,7 @@ public class Handler {
 	
 	public Handler() {
 		keyHandler = new KeyHandler();
-		ship = new SpaceShip(this, 0, 0);
+		ship = new SpaceShip(this, 360, 500);
 		world = new World(ship);
 	}
 	

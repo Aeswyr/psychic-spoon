@@ -5,6 +5,8 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+import input.KeyHandler;
+
 public class Screen extends Canvas { 
 
 	private Dimension dim;
@@ -28,6 +30,10 @@ public class Screen extends Canvas {
     
     frame.add(this);
     frame.pack();
+	}
+	
+	public void addListener(KeyHandler listener) {
+		frame.addKeyListener(listener);
 	}
 	
 }
