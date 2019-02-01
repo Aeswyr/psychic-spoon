@@ -63,4 +63,11 @@ public class Alien extends Entity {
 		
 	}
 	
+	@Override
+	public void die() {
+		super.die();
+		Assets.explosionSound.play();
+		Assets.alienSound.stop(20);
+	}
+	
 }

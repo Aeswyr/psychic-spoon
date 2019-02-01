@@ -47,5 +47,11 @@ public class Asteroid extends Entity {
 		this.xPos += xSpeed;
 		this.yPos += ySpeed;
 	}
+	
+	@Override
+	public void die() {
+		super.die();
+		Assets.explosionSound.play();
+	}
 
 }

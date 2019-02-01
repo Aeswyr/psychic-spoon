@@ -2,6 +2,7 @@ package game;
 
 import gfx.Sprite;
 import gfx.SpriteSheet;
+import sfx.Sound;
 
 public class Assets {
 
@@ -29,6 +30,20 @@ public class Assets {
 	public static Sprite superBoost;
 	public static Sprite alien;
 	
+	public static Sound alienSound;
+	public static Sound batterySound;
+	public static Sound deathSound;
+	public static Sound explosionSound;
+	public static Sound fireBeamSound;
+	public static Sound fireLazerSound;
+	public static Sound fireSuperSound;
+	public static Sound hurtSound;
+	public static Sound pickupBeamSound;
+	public static Sound pickupRepairSound;
+	public static Sound pickupScoreSound;
+	public static Sound pickupSuperSound;
+
+	
 	public static void initialize() {
 		s_tile = new SpriteSheet(WORLD + "tile.png");
 		s_ship = new SpriteSheet(ENTITY + "ship.png");
@@ -50,6 +65,19 @@ public class Assets {
 		repair = new Sprite(0, 0, 16, s_powerup);
 		battery = new Sprite(16, 0, 16, s_powerup);
 		superBoost = new Sprite(32, 0, 16, s_powerup);
+		
+		alienSound = new Sound(SOUND + "alien.wav");
+		batterySound = new Sound(SOUND + "battery.wav");
+		deathSound = new Sound(SOUND + "death.wav");
+		explosionSound = new Sound(SOUND + "explosion.wav");
+		fireBeamSound = new Sound(SOUND + "fireBeam.wav");
+		fireLazerSound = new Sound(SOUND + "fireLazer.wav");
+		fireSuperSound = new Sound(SOUND + "fireSuper.wav");
+		hurtSound = new Sound(SOUND + "hurt.wav");
+		pickupBeamSound = new Sound(SOUND + "pickupBeam.wav");
+		pickupRepairSound = new Sound(SOUND + "pickupRepair.wav");
+		pickupScoreSound = new Sound(SOUND + "pickupScore.wav");
+		pickupSuperSound = new Sound(SOUND + "pickupSuper.wav");
 		
 	}
 	

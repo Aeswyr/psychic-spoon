@@ -11,6 +11,7 @@ import entities.Power;
 import entities.Repair;
 import entities.SpaceShip;
 import entities.Super;
+import game.Assets;
 import game.Game;
 import game.Screen;
 import runtime.Handler;
@@ -84,6 +85,7 @@ public class World {
 		if (count % nextAlien == 0) {
 			nextAlien = (int)(Math.random() * 360 + 720);
 			entityManager.add(new Alien(handler, (int)(Math.random() * 800 - 48), ship.getYPos() - 800));
+			Assets.alienSound.loop(20);
 		}
 		
 		
