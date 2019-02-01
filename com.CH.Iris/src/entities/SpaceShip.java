@@ -75,6 +75,8 @@ public class SpaceShip extends Entity{
     	if (lives < 0) {
     		Assets.deathSound.play();
     		theHandler.getWorld().removeEntity(this);
+    	} else {
+    		Assets.hurtSound.play();
     	}
     }
     
