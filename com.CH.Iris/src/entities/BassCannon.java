@@ -8,7 +8,7 @@ import utility.Hitbox;
 
 public class BassCannon extends Entity {
 
-	int xSpeed, ySpeed;
+	int xSpeed, ySpeed, lifeTime;
 
 	public BassCannon(Handler theHandler, int xPos, int yPos, int xSpeed, int ySpeed) {
 
@@ -27,8 +27,10 @@ public class BassCannon extends Entity {
 
 	@Override
 	public void update() {
+
 		this.yPos += ySpeed;
 		this.xPos += xSpeed;
+		lifeTime++;
 		hitbox.update();
 
 		for (Entity e : theHandler.getWorld().getEntities()) {
@@ -50,6 +52,8 @@ public class BassCannon extends Entity {
 		}
 		if (theHandler.getPlayer().getYPos() - this.yPos > 800 || theHandler.getPlayer().getYPos() - this.yPos < -800)
 			theHandler.getWorld().removeEntity(this);
+		
+		this.die();
 	}
 
 	@Override

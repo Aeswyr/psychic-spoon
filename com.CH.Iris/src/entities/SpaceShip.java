@@ -46,7 +46,8 @@ public class SpaceShip extends Entity{
         theHandler.getCamera().centerOnEntity(this);
         
         if (fireBassCannon < 180) {
-        	theHandler.getWorld().addEntity(new BassCannon(theHandler, this.xPos + 24, this.yPos - 64, 0, -10));
+        	for (int i = 0; i < 18; i++)
+        	theHandler.getWorld().addEntity(new BassCannon(theHandler, this.xPos + 12, this.yPos - 64 - 48 * i, 0, -10));
         }
         
         fireBassCannon++;
