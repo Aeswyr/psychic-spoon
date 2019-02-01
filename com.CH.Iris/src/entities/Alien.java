@@ -37,6 +37,7 @@ public class Alien extends Entity {
 			theHandler.getWorld().addEntity(new Beam(theHandler, xPos, yPos + 64, 0, 10));
 			this.xSpeed = (int)(Math.random() * 9) - 4;
 			this.ySpeed = -3;
+			Assets.fireLazerSound.play();
 			
 		}
 		
