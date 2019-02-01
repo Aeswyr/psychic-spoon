@@ -55,7 +55,7 @@ public class Assets {
 		s_asteroid = new SpriteSheet(ENTITY + "asteriod.png");
 		s_powerup = new SpriteSheet(ENTITY + "boost.png");
 		s_beam = new SpriteSheet(ENTITY + "shoot.png");
-		s_alien = new SpriteSheet(ENTITY + "Alien.png");
+		s_alien = new SpriteSheet(ENTITY + "alien.png");
 		
 		blackTile = new Sprite(0, 0, 16, s_tile);
 		starTile = new Sprite(16, 0, 16, s_tile);
