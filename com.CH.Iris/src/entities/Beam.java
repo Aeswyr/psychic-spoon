@@ -38,7 +38,9 @@ public class Beam extends Entity {
 					if (e instanceof SpaceShip) {
 						theHandler.getPlayer().damage();
 					} else {
-						theHandler.getWorld().removeEntity(e);
+						if (e instanceof Alien && this.ySpeed == -10) theHandler.getPlayer().addScore(500);
+						if (e instanceof Asteroid && this.ySpeed == -10) theHandler.getPlayer().addScore(100);
+						e.die();
 					}
 					theHandler.getWorld().removeEntity(this);
 				}
@@ -52,5 +54,6 @@ public class Beam extends Entity {
 		sprite.render(xPos - theHandler.getCamera().xOffset(), yPos - theHandler.getCamera().yOffset(), g);
 
 	}
+	
 
 }

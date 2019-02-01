@@ -35,4 +35,8 @@ public abstract class Entity {
     public Hitbox getHitBox() {
     	return hitbox;
     }
+    
+    public void die() {
+    	theHandler.getWorld().removeEntity(this);
+    }
 }

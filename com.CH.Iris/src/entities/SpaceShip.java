@@ -103,6 +103,10 @@ public class SpaceShip extends Entity{
     	return this.score;
     }
     
+    public void addScore(int score) {
+    	this.score += score;
+    }
+    
     public int getLives() {
     	return lives;
     }

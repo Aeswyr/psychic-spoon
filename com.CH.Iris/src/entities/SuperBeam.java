@@ -36,11 +36,15 @@ public class SuperBeam extends Entity{
 			if (e instanceof Beam || e instanceof SuperBeam) {
 			} else {
 				if (this.hitbox.contains(e.getHitBox())) {
-					theHandler.getWorld().removeEntity(e);
+					e.die();
 					theHandler.getWorld().addEntity(new Beam(theHandler, xPos, yPos, 2, -10));
 					theHandler.getWorld().addEntity(new Beam(theHandler, xPos, yPos, 0, -10));
 					theHandler.getWorld().addEntity(new Beam(theHandler, xPos, yPos, -2, -10));
-					theHandler.getWorld().removeEntity(this);
+					
+					if (e instanceof Alien && this.ySpeed == -10) theHandler.getPlayer().addScore(500);
+					if (e instanceof Asteroid && this.ySpeed == -10) theHandler.getPlayer().addScore(100);
+					
+					this.die();
 					break;
 				}
 			}
