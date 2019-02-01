@@ -5,10 +5,13 @@ import java.util.ArrayList;
 
 import entities.Alien;
 import entities.Asteroid;
+import entities.BassCannonPickup;
 import entities.Entity;
 import entities.EntityManager;
+import entities.PiercePickup;
 import entities.Power;
 import entities.Repair;
+import entities.ScoreBoost;
 import entities.SpaceShip;
 import entities.Super;
 import game.Assets;
@@ -68,7 +71,7 @@ public class World {
 		if (count % nextPowerup == 0) {
 			nextPowerup = (int)(Math.random() * 240 + 240);
 			
-			switch ((int)(Math.random() * 3)) {
+			switch ((int)(Math.random() * 6)) {
 			case 0:
 				entityManager.add(new Super(handler, (int)(Math.random() * 800 - 48), ship.getYPos() - 800));
 				break;
@@ -77,6 +80,15 @@ public class World {
 				break;
 			case 2:
 				entityManager.add(new Repair(handler, (int)(Math.random() * 800 - 48), ship.getYPos() - 800));
+				break;
+			case 3:
+				entityManager.add(new PiercePickup(handler, (int)(Math.random() * 800 - 48), ship.getYPos() - 800));
+				break;
+			case 4:
+				entityManager.add(new BassCannonPickup(handler, (int)(Math.random() * 800 - 48), ship.getYPos() - 800));
+				break;
+			case 5:
+				entityManager.add(new ScoreBoost(handler, (int)(Math.random() * 800 - 48), ship.getYPos() - 800));
 				break;
 			}
 			

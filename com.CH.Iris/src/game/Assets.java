@@ -29,6 +29,11 @@ public class Assets {
 	public static Sprite battery;
 	public static Sprite superBoost;
 	public static Sprite alien;
+	public static Sprite bassCannon;
+	public static Sprite pierceBeam;
+	public static Sprite scoreBoost;
+	public static Sprite piercePickup;
+	public static Sprite bassCannonPickup;
 	
 	public static Sound alienSound;
 	public static Sound batterySound;
@@ -62,9 +67,14 @@ public class Assets {
 		
 		beam = new Sprite(0, 0, 16, s_beam);
 		superBeam = new Sprite(16, 0, 16, s_beam);
+		pierceBeam = new Sprite(32, 0, 16, s_beam);
+		bassCannon = new Sprite(48, 0, 16, s_beam);
 		repair = new Sprite(0, 0, 16, s_powerup);
 		battery = new Sprite(16, 0, 16, s_powerup);
 		superBoost = new Sprite(32, 0, 16, s_powerup);
+		scoreBoost = new Sprite(48, 0, 16, s_powerup);
+		piercePickup = new Sprite(64, 0, 16, s_powerup);
+		bassCannonPickup = new Sprite(80, 0, 16, s_powerup);
 		
 		alienSound = new Sound(SOUND + "alien.wav");
 		batterySound = new Sound(SOUND + "battery.wav");

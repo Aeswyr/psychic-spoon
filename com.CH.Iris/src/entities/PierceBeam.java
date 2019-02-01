@@ -6,24 +6,24 @@ import game.Game;
 import runtime.Handler;
 import utility.Hitbox;
 
-public class Beam extends Entity {
+public class PierceBeam extends Entity {
 
 	int xSpeed, ySpeed;
 
-	public Beam(Handler theHandler, int xPos, int yPos, int xSpeed, int ySpeed) {
+	public PierceBeam(Handler theHandler, int xPos, int yPos, int xSpeed, int ySpeed) {
 
-		super.theHandler = theHandler;
-		super.xPos = xPos;
-		super.yPos = yPos;
-		super.sprite = Assets.beam;
+			super.theHandler = theHandler;
+			super.xPos = xPos;
+			super.yPos = yPos;
+			super.sprite = Assets.pierceBeam;
 
-		this.height = 16;
-		this.width = 1;
+			this.height = 16;
+			this.width = 5;
 
-		this.hitbox = new Hitbox(this, height * Game.GAMESCALE, width * Game.GAMESCALE, 0, 0);
-		this.xSpeed = xSpeed;
-		this.ySpeed = ySpeed;
-	}
+			this.hitbox = new Hitbox(this, height * Game.GAMESCALE, width * Game.GAMESCALE, 0, 0);
+			this.xSpeed = xSpeed;
+			this.ySpeed = ySpeed;
+		}
 
 	@Override
 	public void update() {
@@ -38,15 +38,18 @@ public class Beam extends Entity {
 					if (e instanceof SpaceShip) {
 						theHandler.getPlayer().damage();
 					} else {
-						if (e instanceof Alien && this.ySpeed == -10) theHandler.getPlayer().addScore(500);
-						if (e instanceof Asteroid && this.ySpeed == -10) theHandler.getPlayer().addScore(100);
+						if (e instanceof Alien && this.ySpeed == -10)
+							theHandler.getPlayer().addScore(250);
+						if (e instanceof Asteroid && this.ySpeed == -10)
+							theHandler.getPlayer().addScore(50);
 						e.die();
 					}
-					theHandler.getWorld().removeEntity(this);
+
 				}
 			}
 		}
-
+		if (theHandler.getPlayer().getYPos() - this.yPos > 800)
+			theHandler.getWorld().removeEntity(this);
 	}
 
 	@Override
@@ -54,6 +57,5 @@ public class Beam extends Entity {
 		sprite.render(xPos - theHandler.getCamera().xOffset(), yPos - theHandler.getCamera().yOffset(), g);
 
 	}
-	
 
 }

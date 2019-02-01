@@ -15,6 +15,7 @@ public class SpaceShip extends Entity{
     private int lives = 2;
     boolean fired = false;
     private int score;
+    int fireBassCannon = 180;
     
     ArrayList<Entity> attacks;
     
@@ -43,6 +44,12 @@ public class SpaceShip extends Entity{
         ability();
         this.hitbox.update();
         theHandler.getCamera().centerOnEntity(this);
+        
+        if (fireBassCannon < 180) {
+        	theHandler.getWorld().addEntity(new BassCannon(theHandler, this.xPos + 24, this.yPos - 64, 0, -10));
+        }
+        
+        fireBassCannon++;
         score++;
     }
     
@@ -64,7 +71,7 @@ public class SpaceShip extends Entity{
     }
     
     public void damage() {
-    	this.lives--;
+    	//this.lives--;
     	if (lives < 0) {
     		Assets.deathSound.play();
     		theHandler.getWorld().removeEntity(this);
@@ -98,8 +105,13 @@ public class SpaceShip extends Entity{
     			Assets.fireLazerSound.play();
     		}
     		
-    		if(attacks.get(0) instanceof Super) {
+    		if(attacks.get(0) instanceof Super || attacks.get(0) instanceof PierceBeam) {
     			Assets.fireSuperSound.play();
+    		}
+    		
+    		if (attacks.get(0) instanceof BassCannon) {
+    			fireBassCannon = 1;
+    			Assets.fireBeamSound.play();
     		}
     		
     		

@@ -34,13 +34,16 @@ public class SuperBeam extends Entity{
 		
 		for (Entity e : theHandler.getWorld().getEntities()) {
 			
-			if (e instanceof Beam || e instanceof SuperBeam) {
+			if (e instanceof Beam || e instanceof SuperBeam || e instanceof PierceBeam || e instanceof BassCannon) {
 			} else {
 				if (this.hitbox.contains(e.getHitBox())) {
 					e.die();
+					theHandler.getWorld().addEntity(new Beam(theHandler, xPos, yPos, 4, -10));
 					theHandler.getWorld().addEntity(new Beam(theHandler, xPos, yPos, 2, -10));
 					theHandler.getWorld().addEntity(new Beam(theHandler, xPos, yPos, 0, -10));
 					theHandler.getWorld().addEntity(new Beam(theHandler, xPos, yPos, -2, -10));
+					theHandler.getWorld().addEntity(new Beam(theHandler, xPos, yPos, -4, -10));
+					
 					
 					if (e instanceof Alien && this.ySpeed == -10) theHandler.getPlayer().addScore(500);
 					if (e instanceof Asteroid && this.ySpeed == -10) theHandler.getPlayer().addScore(100);
