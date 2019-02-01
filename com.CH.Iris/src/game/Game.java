@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
-import entities.SpaceShip;
 import runtime.Handler;
 
 public class Game implements Runnable{
@@ -88,8 +87,8 @@ public class Game implements Runnable{
 	    
 	    if(handler.getPlayer().getLives() < 0) {
 	    	g.setFont(gameOver);
-	    	g.drawString("GAME OVER", 275, 250);
-	    	g.drawString("Score: " + handler.getPlayer().getScore(), 300, 300);
+	    	g.drawString("GAME OVER", 225, 65);
+	    	g.drawString("Score: " + handler.getPlayer().getScore(), 250, 115);
 	    }
 	    
 	    
@@ -109,7 +108,6 @@ public class Game implements Runnable{
 		try {
 			t.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
