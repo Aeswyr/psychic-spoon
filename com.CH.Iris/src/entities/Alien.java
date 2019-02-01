@@ -42,7 +42,12 @@ public class Alien extends Entity {
 		
 		timer++;
 		
-		if (this.xPos <= 0 + xSpeed || this.xPos >= 800 - xSpeed) this.xSpeed *= -1;
+		if (this.xPos <= 0 + xSpeed || this.xPos >= 800 - 48 - xSpeed) {
+			this.xSpeed *= -1;
+			this.xPos += xSpeed;
+			this.xPos += xSpeed;
+			this.xPos += xSpeed;
+		}
 		
 		
 		

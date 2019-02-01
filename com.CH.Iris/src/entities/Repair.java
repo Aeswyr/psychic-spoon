@@ -24,9 +24,10 @@ public class Repair extends Entity{
 	@Override
 	public void update() {
 		hitbox.update();
-		if (this.hitbox.contains(theHandler.getPlayer().getHitBox()))
+		if (this.hitbox.contains(theHandler.getPlayer().getHitBox())) {
 			theHandler.getPlayer().repair();
 		theHandler.getWorld().removeEntity(this);
+		}
 	}
 
 	@Override

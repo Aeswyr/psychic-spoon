@@ -69,13 +69,13 @@ public class World {
 			
 			switch ((int)(Math.random() * 3)) {
 			case 0:
-				entityManager.add(new Super(handler, (int)(Math.random() * 800), ship.getYPos() - 800));
+				entityManager.add(new Super(handler, (int)(Math.random() * 800 - 48), ship.getYPos() - 800));
 				break;
 			case 1:
-				entityManager.add(new Power(handler, (int)(Math.random() * 800), ship.getYPos() - 800));
+				entityManager.add(new Power(handler, (int)(Math.random() * 800 - 48), ship.getYPos() - 800));
 				break;
 			case 2:
-				entityManager.add(new Repair(handler, (int)(Math.random() * 800), ship.getYPos() - 800));
+				entityManager.add(new Repair(handler, (int)(Math.random() * 800 - 48), ship.getYPos() - 800));
 				break;
 			}
 			
@@ -83,7 +83,7 @@ public class World {
 		
 		if (count % nextAlien == 0) {
 			nextAlien = (int)(Math.random() * 360 + 720);
-			entityManager.add(new Alien(handler, (int)(Math.random() * 800), ship.getYPos() - 800));
+			entityManager.add(new Alien(handler, (int)(Math.random() * 800 - 48), ship.getYPos() - 800));
 		}
 		
 		
