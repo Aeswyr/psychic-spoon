@@ -30,6 +30,7 @@ public class PiercePickup extends Entity{
 				theHandler.getPlayer().collect(new PierceBeam(theHandler, 0, 0, 0, -10));
 				theHandler.getPlayer().collect(new PierceBeam(theHandler, 0, 0, 0, -10));
 			theHandler.getWorld().removeEntity(this);
+			Assets.pickupSuperSound.play();
 		}
 			
 	}

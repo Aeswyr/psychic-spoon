@@ -29,6 +29,7 @@ public class ScoreBoost extends Entity{
 		if (this.hitbox.contains(theHandler.getPlayer().getHitBox())) {
 				theHandler.getPlayer().addScore(500);
 			theHandler.getWorld().removeEntity(this);
+			Assets.pickupScoreSound.play();
 		}
 			
 	}

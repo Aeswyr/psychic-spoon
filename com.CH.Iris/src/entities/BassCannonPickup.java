@@ -29,6 +29,7 @@ public class BassCannonPickup extends Entity{
 		if (this.hitbox.contains(theHandler.getPlayer().getHitBox())) {
 				theHandler.getPlayer().collect(new BassCannon(theHandler, 0, 0, 0, -10));
 			theHandler.getWorld().removeEntity(this);
+			Assets.pickupBeamSound.play();
 		}
 			
 	}
