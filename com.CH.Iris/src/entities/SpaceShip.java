@@ -14,6 +14,7 @@ public class SpaceShip extends Entity{
     private static int moveMent = 5;
     int lives = 2;
     boolean fired = false;
+    private int score;
     
     ArrayList<Entity> attacks;
     
@@ -32,6 +33,8 @@ public class SpaceShip extends Entity{
 		this.collect(new Beam(theHandler, 0, 0, 0, -10));
 		this.collect(new Beam(theHandler, 0, 0, 0, -10));
 		this.collect(new Beam(theHandler, 0, 0, 0, -10));
+		
+		score = 0;
         
     }
     
@@ -40,6 +43,7 @@ public class SpaceShip extends Entity{
         ability();
         this.hitbox.update();
         theHandler.getCamera().centerOnEntity(this);
+        score++;
     }
     
     public void render(Graphics g) {
@@ -93,6 +97,10 @@ public class SpaceShip extends Entity{
     
     public void collect(Entity e) {
     	if (attacks.size() < 8) attacks.add(e);
+    }
+    
+    public int getScore() {
+    	return this.score;
     }
     
 
