@@ -100,5 +100,13 @@ public class Hitbox {
 
 		return bounds;
 	}
+	
+	public void setX(int x) {
+		positionX = x;
+	}
+	
+	public void setY(int y) {
+		positionY = y;
+	}
 
 }

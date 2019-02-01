@@ -48,7 +48,7 @@ public class BassCannon extends Entity {
 				}
 			}
 		}
-		if (theHandler.getPlayer().getYPos() - this.yPos > 800)
+		if (theHandler.getPlayer().getYPos() - this.yPos > 800 || theHandler.getPlayer().getYPos() - this.yPos < -800)
 			theHandler.getWorld().removeEntity(this);
 	}
 

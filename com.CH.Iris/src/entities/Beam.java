@@ -47,6 +47,9 @@ public class Beam extends Entity {
 			}
 		}
 
+		if (theHandler.getPlayer().getYPos() - this.yPos > 800 || theHandler.getPlayer().getYPos() - this.yPos < -800)
+			theHandler.getWorld().removeEntity(this);
+		
 	}
 
 	@Override
