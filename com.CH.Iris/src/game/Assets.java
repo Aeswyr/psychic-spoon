@@ -7,6 +7,7 @@ public class Assets {
 
 	private static final String ENTITY = "/entity/";
 	private static final String WORLD = "/world/";
+	private static final String SOUND = "/sound/";
 	
 	private static SpriteSheet s_tile;
 	private static SpriteSheet s_ship;
@@ -43,7 +44,6 @@ public class Assets {
 		ship = new Sprite(0, 0, 16, s_ship);
 		asteroid = new Sprite(0, 0, 32, s_asteroid);
 		alien = new Sprite(0, 0, 16, s_alien);
-		
 		
 		beam = new Sprite(0, 0, 16, s_beam);
 		superBeam = new Sprite(16, 0, 16, s_beam);
