@@ -12,7 +12,7 @@ import utility.Hitbox;
 public class SpaceShip extends Entity{
 	
     private static int moveMent = 5;
-    int lives = 2;
+    private int lives = 2;
     boolean fired = false;
     private int score;
     
@@ -103,5 +103,8 @@ public class SpaceShip extends Entity{
     	return this.score;
     }
     
-
+    public int getLives() {
+    	return lives;
+    }
+    
 }

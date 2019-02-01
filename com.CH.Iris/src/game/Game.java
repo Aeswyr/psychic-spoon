@@ -67,7 +67,8 @@ public class Game implements Runnable{
 	
 	public void render() {
 		bs = screen.getBufferStrategy();
-		Font ourFont = new Font("New Font", Font.ROMAN_BASELINE + Font.BOLD, 20);
+		Font score = new Font("Score", Font.ROMAN_BASELINE + Font.BOLD, 20);
+		Font gameOver = new Font("Score", Font.HANGING_BASELINE + Font.BOLD, 50);
 		
 		if (bs == null) {
 		screen.createBufferStrategy(3);
@@ -77,13 +78,20 @@ public class Game implements Runnable{
 		g = bs.getDrawGraphics();
 		
 		//Graphics Manipulation
-	    g.setFont(ourFont);
+	    g.setFont(score);
 	    g.setColor(Color.WHITE);
 		
 	    //Draw Here!
 	    g.clearRect(0, 0, screen.getWidth(), screen.getHeight());
 	    handler.render(g);	    
 	    g.drawString("Score: " + handler.getPlayer().getScore(), 650, 30);
+	    
+	    if(handler.getPlayer().getLives() < 0) {
+	    	g.setFont(gameOver);
+	    	g.drawString("GAME OVER", 275, 250);
+	    	g.drawString("Score: " + handler.getPlayer().getScore(), 300, 300);
+	    }
+	    
 	    
 	    //End Drawing!
 	    bs.show();
@@ -94,7 +102,6 @@ public class Game implements Runnable{
 		running = true;
 		t = new Thread(this);
 		t.start();
-		
 	}
 	
 	public synchronized void stop() {
