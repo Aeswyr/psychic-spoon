@@ -27,7 +27,7 @@ public class Repair extends Entity {
 		if (this.hitbox.contains(theHandler.getPlayer().getHitBox())) {
 			theHandler.getPlayer().repair();
 			theHandler.getWorld().removeEntity(this);
-			Assets.batterySound.play();
+			Assets.pickupRepairSound.play();
 		}
 	}
 

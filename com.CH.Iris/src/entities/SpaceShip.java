@@ -92,7 +92,7 @@ public class SpaceShip extends Entity{
     		theHandler.getWorld().addEntity(attacks.get(0));
     		
     		if(attacks.get(0) instanceof Beam) {
-    			Assets.fireBeamSound.play();
+    			Assets.fireLazerSound.play();
     		}
     		
     		if(attacks.get(0) instanceof Super) {
