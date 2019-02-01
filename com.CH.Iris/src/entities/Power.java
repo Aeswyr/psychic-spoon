@@ -31,6 +31,7 @@ public class Power extends Entity{
 			theHandler.getPlayer().collect(new Beam(theHandler, 0, 0, 0, -10));
 			theHandler.getPlayer().collect(new Beam(theHandler, 0, 0, 0, -10));
 			theHandler.getWorld().removeEntity(this);
+			Assets.batterySound.play();
 		}
 			
 	}

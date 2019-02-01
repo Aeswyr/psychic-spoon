@@ -33,6 +33,7 @@ public class SuperBeam extends Entity{
 		hitbox.update();
 		
 		for (Entity e : theHandler.getWorld().getEntities()) {
+			
 			if (e instanceof Beam || e instanceof SuperBeam) {
 			} else {
 				if (this.hitbox.contains(e.getHitBox())) {

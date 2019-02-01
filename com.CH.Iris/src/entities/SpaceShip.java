@@ -90,7 +90,19 @@ public class SpaceShip extends Entity{
     		attacks.get(0).xPos = this.xPos + 24;
     		attacks.get(0).yPos = this.yPos - 64;
     		theHandler.getWorld().addEntity(attacks.get(0));
+    		
+    		if(attacks.get(0) instanceof Beam) {
+    			Assets.fireBeamSound.play();
+    		}
+    		
+    		if(attacks.get(0) instanceof Super) {
+    			Assets.fireSuperSound.play();
+    		}
+    		
+    		
+    		
     		attacks.remove(0);
+    		    		
     	}
     	if (!theHandler.getKeyHandler().space) fired = false;
     }
