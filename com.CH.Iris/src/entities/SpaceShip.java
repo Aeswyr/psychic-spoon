@@ -1,6 +1,8 @@
 package entities;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
+
 import game.Assets;
 import game.Game;
 import runtime.Handler;
@@ -11,6 +13,9 @@ public class SpaceShip extends Entity{
 	
     private static int moveMent = 5;
     int lives = 3;
+    boolean fired = false;
+    
+    ArrayList<Entity> attacks;
     
     public SpaceShip(Handler theHandler, int xPos, int yPos) {
         
@@ -18,12 +23,21 @@ public class SpaceShip extends Entity{
         super.xPos = xPos;
         super.yPos = yPos;
         super.sprite = Assets.ship;
-        this.hitbox = new Hitbox(this, 7 * Game.GAMESCALE, 15 * Game.GAMESCALE, 5 * Game.GAMESCALE, 0);
+        attacks = new ArrayList<Entity>();
+        
+        this.height = 15;
+        this.width = 7;
+        this.hitbox = new Hitbox(this, height * Game.GAMESCALE, width * Game.GAMESCALE, 5 * Game.GAMESCALE, 0);
+        
+		this.collect(new Beam(theHandler, 0, 0, 0, -10));
+		this.collect(new Beam(theHandler, 0, 0, 0, -10));
+		this.collect(new Beam(theHandler, 0, 0, 0, -10));
         
     }
     
     public void update() {
         move();
+        ability();
         this.hitbox.update();
         theHandler.getCamera().centerOnEntity(this);
     }
@@ -49,10 +63,35 @@ public class SpaceShip extends Entity{
     	this.lives--;
     }
     
+    public void repair() {
+    	this.lives++;
+    }
+    
     public void renderUI(Graphics g) {
     	for (int i = 0; i < lives; i++) {
     		Assets.ship.render(64 * i, 550, g);
     	}
+    	
+    	for (int i = 0; i < attacks.size(); i++) {
+    		attacks.get(i).xPos = 800 - (48 * (i+1)) + theHandler.getCamera().xOffset();
+    		attacks.get(i).yPos = 550 + theHandler.getCamera().yOffset();
+    		attacks.get(i).render(g);
+    	}
+    }
+    
+    public void ability() {
+    	if (theHandler.getKeyHandler().space && !fired && !attacks.isEmpty()) {
+    		fired = true;
+    		attacks.get(0).xPos = this.xPos + 24;
+    		attacks.get(0).yPos = this.yPos - 64;
+    		theHandler.getWorld().addEntity(attacks.get(0));
+    		attacks.remove(0);
+    	}
+    	if (!theHandler.getKeyHandler().space) fired = false;
+    }
+    
+    public void collect(Entity e) {
+    	if (attacks.size() < 8) attacks.add(e);
     }
     
 
