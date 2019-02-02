@@ -39,9 +39,11 @@ public class Game implements Runnable{
 		long lastFPS = System.nanoTime();
 		long deltaFPS = 1000000000;		
 		
+		Assets.spaceshipChillMusic.loop(3);;
+		
 		while (running) {
 			
-			Assets.spaceshipChillMusic.play();
+			
 			
 			long currentTime = System.nanoTime();
 			
