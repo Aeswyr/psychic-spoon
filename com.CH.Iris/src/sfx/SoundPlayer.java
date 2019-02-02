@@ -22,13 +22,13 @@ public class SoundPlayer implements Runnable {
 				sound.sound.setFramePosition(0);
 				sound.sound.start();
 				
-				if (clips.isEmpty())
-					try {
+				//if (clips.isEmpty())
+					//try {
 						//t.wait();
-					} catch (InterruptedException e) {
+					//} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+						//e.printStackTrace();
+					//}
 
 			}
 		}
