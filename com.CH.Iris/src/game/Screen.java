@@ -2,10 +2,13 @@ package game;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 
 import input.KeyHandler;
+import sfx.Sound;
 
 public class Screen extends Canvas { 
 
@@ -33,7 +36,18 @@ public class Screen extends Canvas {
     this.setFocusable(false);
     
     frame.add(this);
+    
+    frame.addWindowListener(new WindowAdapter()
+    {
+        public void windowClosing(WindowEvent we) {
+        Sound.shutdown();
+        System.out.println("Game Closed");
+        }
+    });
     frame.pack();
+    
+    
+    
 	}
 	
 	public void addListener(KeyHandler listener) {

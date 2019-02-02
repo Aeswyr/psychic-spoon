@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import runtime.Handler;
+import sfx.Sound;
 
 public class Game implements Runnable{
 
@@ -39,7 +40,7 @@ public class Game implements Runnable{
 		long lastFPS = System.nanoTime();
 		long deltaFPS = 1000000000;		
 		
-		Assets.spaceshipChillMusic.loop(3);;
+		Assets.spaceshipChillMusic.loop();
 		
 		while (running) {
 			
@@ -109,6 +110,7 @@ public class Game implements Runnable{
 	
 	public synchronized void stop() {
 		running = false;
+		
 		try {
 			t.join();
 		} catch (InterruptedException e) {

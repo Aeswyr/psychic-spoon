@@ -9,7 +9,7 @@ public class Initialize {
 		Sound.InitSound();
 		Game game = new Game();
 		game.start(); 
-		
+		//Sound.shutdown();
 	}
 	
 }
