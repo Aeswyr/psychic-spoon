@@ -47,6 +47,7 @@ public class Assets {
 	public static Sound pickupRepairSound;
 	public static Sound pickupScoreSound;
 	public static Sound pickupSuperSound;
+	public static Sound spaceshipChillMusic;
 
 	
 	public static void initialize() {
@@ -88,6 +89,7 @@ public class Assets {
 		pickupRepairSound = new Sound(SOUND + "pickupRepair.wav");
 		pickupScoreSound = new Sound(SOUND + "pickupScore.wav");
 		pickupSuperSound = new Sound(SOUND + "pickupSuper.wav");
+		spaceshipChillMusic = new Sound(SOUND + "spaceshipChillMusic.wav");
 		
 	}
 	
