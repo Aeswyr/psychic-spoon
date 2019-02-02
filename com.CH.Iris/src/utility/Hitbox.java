@@ -8,17 +8,9 @@ public class Hitbox {
 	private int height;
 	private int width;
 
-	// Height and width of another enity
-	private int eHeight;
-	private int eWidth;
-
 	// Offset to trim the hitbox of the current object
 	private int offsetX;
 	private int offsetY;
-
-	// Offset to trim the hitbox of another entity
-	private int eOffsetX;
-	private int eOffsetY;
 
 	// Position of the current object
 	private int positionX;
@@ -42,36 +34,79 @@ public class Hitbox {
 	 * 
 	 * 
 	 */
-	public boolean contains(Entity e2) {
-		
-		int positionXR = positionX + width;
-		int positionYB = positionY + height;
-		eWidth = e2.getWidth();
-		eHeight = e2.getHeight();
+	public boolean contains(Hitbox h) {
 
-		if (positionX + offsetX > e2.getXPos() + eOffsetX && positionXR < e2.getXPos() + eWidth) {
+		if (this.getBounds()[0] > h.getBounds()[0] && this.getBounds()[0] < h.getBounds()[2]) {
 
-			if (positionY + offsetY < e2.getYPos() + offsetY + eOffsetY && positionY + offsetY > e2.getYPos() + eHeight) {
+			if (this.getBounds()[1] > h.getBounds()[1] && this.getBounds()[1] < h.getBounds()[3]) {
+				return true;
+			}
+
+			if (this.getBounds()[3] > h.getBounds()[1] && this.getBounds()[3] < h.getBounds()[3]) {
 				return true;
 			}
 
 		}
 
-		if (positionXR + offsetX > e2.getXPos() + offsetX + eOffsetX && positionX + offsetX < e2.getXPos() + eWidth) {
+		if (this.getBounds()[2] > h.getBounds()[0] && this.getBounds()[2] < h.getBounds()[2]) {
 
-			if (positionYB < e2.getYPos() + offsetY + eOffsetY && positionYB > e2.getYPos() + eHeight) {
+			if (this.getBounds()[1] > h.getBounds()[1] && this.getBounds()[1] < h.getBounds()[3]) {
+				return true;
+			}
+
+			if (this.getBounds()[3] > h.getBounds()[1] && this.getBounds()[3] < h.getBounds()[3]) {
+				return true;
+			}
+
+		}
+		
+		
+		
+		if (h.getBounds()[0] > this.getBounds()[0] && h.getBounds()[0] < this.getBounds()[2]) {
+
+			if (h.getBounds()[1] > this.getBounds()[1] && h.getBounds()[1] < this.getBounds()[3]) {
+				return true;
+			}
+
+			if (h.getBounds()[3] > this.getBounds()[1] && h.getBounds()[3] < this.getBounds()[3]) {
+				return true;
+			}
+
+		}
+
+		if (h.getBounds()[2] > this.getBounds()[0] && h.getBounds()[2] < this.getBounds()[2]) {
+
+			if (h.getBounds()[1] > this.getBounds()[1] && h.getBounds()[1] < this.getBounds()[3]) {
+				return true;
+			}
+
+			if (h.getBounds()[3] > this.getBounds()[1] && h.getBounds()[3] < this.getBounds()[3]) {
 				return true;
 			}
 
 		}
 
 		return false;
-	
 	}
 
 	public void update() {
 		positionX = e.getXPos();
 		positionY = e.getYPos();
+	}
+
+	public int[] getBounds() {
+		int[] bounds = { this.positionX + this.offsetX, this.positionY + this.offsetY,
+				this.positionX + this.offsetX + this.width, this.positionY + this.offsetY + this.height };
+
+		return bounds;
+	}
+	
+	public void setX(int x) {
+		positionX = x;
+	}
+	
+	public void setY(int y) {
+		positionY = y;
 	}
 
 }

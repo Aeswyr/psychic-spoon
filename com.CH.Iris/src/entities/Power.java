@@ -26,10 +26,12 @@ public class Power extends Entity{
 	@Override
 	public void update() {
 		hitbox.update();
-		if (this.hitbox.contains(theHandler.getPlayer())) {
+		if (this.hitbox.contains(theHandler.getPlayer().getHitBox())) {
 			theHandler.getPlayer().collect(new Beam(theHandler, 0, 0, 0, -10));
 			theHandler.getPlayer().collect(new Beam(theHandler, 0, 0, 0, -10));
 			theHandler.getPlayer().collect(new Beam(theHandler, 0, 0, 0, -10));
+			theHandler.getWorld().removeEntity(this);
+			Assets.batterySound.play();
 		}
 			
 	}

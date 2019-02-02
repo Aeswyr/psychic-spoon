@@ -31,4 +31,12 @@ public abstract class Entity {
     public int getHeight() {
     	return height;
     }
+    
+    public Hitbox getHitBox() {
+    	return hitbox;
+    }
+    
+    public void die() {
+    	theHandler.getWorld().removeEntity(this);
+    }
 }

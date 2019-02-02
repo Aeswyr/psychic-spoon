@@ -7,13 +7,15 @@ import game.Assets;
 import game.Game;
 import runtime.Handler;
 import utility.Hitbox;
-import gfx.Sprite;
+
 
 public class SpaceShip extends Entity{
 	
     private static int moveMent = 5;
-    int lives = 3;
+    private int lives = 2;
     boolean fired = false;
+    private int score;
+    int fireBassCannon = 180;
     
     ArrayList<Entity> attacks;
     
@@ -32,6 +34,8 @@ public class SpaceShip extends Entity{
 		this.collect(new Beam(theHandler, 0, 0, 0, -10));
 		this.collect(new Beam(theHandler, 0, 0, 0, -10));
 		this.collect(new Beam(theHandler, 0, 0, 0, -10));
+		
+		score = 0;
         
     }
     
@@ -40,6 +44,14 @@ public class SpaceShip extends Entity{
         ability();
         this.hitbox.update();
         theHandler.getCamera().centerOnEntity(this);
+        
+        if (fireBassCannon < 180) {
+        	for (int i = 0; i < 18; i++)
+        	theHandler.getWorld().addEntity(new BassCannon(theHandler, this.xPos + 12, this.yPos - 64 - 48 * i, 0, -10));
+        }
+        
+        fireBassCannon++;
+        score++;
     }
     
     public void render(Graphics g) {
@@ -61,10 +73,20 @@ public class SpaceShip extends Entity{
     
     public void damage() {
     	this.lives--;
+    	if (lives < 0) {
+    		Assets.deathSound.play();
+    		theHandler.getWorld().removeEntity(this);
+    		xPos = 1600;
+    		this.hitbox = new Hitbox(this, 0, 0, 0, 0);
+    		hitbox.setX(0);
+    		hitbox.setY(1600);
+    	} else {
+    		Assets.hurtSound.play();
+    	}
     }
     
     public void repair() {
-    	this.lives++;
+    	if (lives < 5) this.lives++;
     }
     
     public void renderUI(Graphics g) {
@@ -85,7 +107,24 @@ public class SpaceShip extends Entity{
     		attacks.get(0).xPos = this.xPos + 24;
     		attacks.get(0).yPos = this.yPos - 64;
     		theHandler.getWorld().addEntity(attacks.get(0));
+    		
+    		if(attacks.get(0) instanceof Beam) {
+    			Assets.fireLazerSound.play();
+    		}
+    		
+    		if(attacks.get(0) instanceof Super || attacks.get(0) instanceof PierceBeam) {
+    			Assets.fireSuperSound.play();
+    		}
+    		
+    		if (attacks.get(0) instanceof BassCannon) {
+    			fireBassCannon = 1;
+    			Assets.fireBeamSound.play();
+    		}
+    		
+    		
+    		
     		attacks.remove(0);
+    		    		
     	}
     	if (!theHandler.getKeyHandler().space) fired = false;
     }
@@ -94,5 +133,16 @@ public class SpaceShip extends Entity{
     	if (attacks.size() < 8) attacks.add(e);
     }
     
-
+    public int getScore() {
+    	return this.score;
+    }
+    
+    public void addScore(int score) {
+    	this.score += score;
+    }
+    
+    public int getLives() {
+    	return lives;
+    }
+    
 }

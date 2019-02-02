@@ -1,10 +1,8 @@
 package entities;
 
 import java.awt.Graphics;
-
 import game.Assets;
 import game.Game;
-import gfx.Sprite;
 import runtime.Handler;
 import utility.Hitbox;
 
@@ -32,7 +30,7 @@ public class Asteroid extends Entity {
 	public void update() {
 		move();
 		hitbox.update();
-		if (this.hitbox.contains(theHandler.getPlayer())) {
+		if (this.hitbox.contains(theHandler.getPlayer().getHitBox())) {
 			theHandler.getPlayer().damage();
 			theHandler.getWorld().removeEntity(this);
 			System.out.println("collision");
@@ -49,6 +47,12 @@ public class Asteroid extends Entity {
 	public void move() {
 		this.xPos += xSpeed;
 		this.yPos += ySpeed;
+	}
+	
+	@Override
+	public void die() {
+		super.die();
+		Assets.explosionSound.play();
 	}
 
 }

@@ -1,9 +1,9 @@
 package game;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-
 import runtime.Handler;
 
 public class Game implements Runnable{
@@ -65,6 +65,8 @@ public class Game implements Runnable{
 	
 	public void render() {
 		bs = screen.getBufferStrategy();
+		Font score = new Font("Score", Font.ROMAN_BASELINE + Font.BOLD, 20);
+		Font gameOver = new Font("Score", Font.HANGING_BASELINE + Font.BOLD, 50);
 		
 		if (bs == null) {
 		screen.createBufferStrategy(3);
@@ -73,9 +75,21 @@ public class Game implements Runnable{
 		
 		g = bs.getDrawGraphics();
 		
+		//Graphics Manipulation
+	    g.setFont(score);
+	    g.setColor(Color.WHITE);
+		
 	    //Draw Here!
 	    g.clearRect(0, 0, screen.getWidth(), screen.getHeight());
-	    handler.render(g);
+	    handler.render(g);	    
+	    g.drawString("Score: " + handler.getPlayer().getScore(), 650, 30);
+	    
+	    if(handler.getPlayer().getLives() < 0) {
+	    	g.setFont(gameOver);
+	    	g.drawString("GAME OVER", 225, 65);
+	    	g.drawString("Score: " + handler.getPlayer().getScore(), 250, 115);
+	    }
+	    
 	    
 	    //End Drawing!
 	    bs.show();
@@ -86,7 +100,6 @@ public class Game implements Runnable{
 		running = true;
 		t = new Thread(this);
 		t.start();
-		
 	}
 	
 	public synchronized void stop() {
@@ -94,7 +107,6 @@ public class Game implements Runnable{
 		try {
 			t.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
