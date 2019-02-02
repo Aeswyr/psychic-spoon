@@ -4,9 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-
 import runtime.Handler;
-import sfx.SoundHandler;
 
 public class Game implements Runnable{
 
@@ -62,7 +60,6 @@ public class Game implements Runnable{
 	
 	
 	public void update() {
-		SoundHandler.cleanChannels();
 		handler.update();
 	}
 	

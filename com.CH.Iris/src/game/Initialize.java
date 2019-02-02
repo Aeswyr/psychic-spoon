@@ -1,12 +1,12 @@
 package game;
 
-import sfx.SoundHandler;
+import sfx.Sound;
 
 public class Initialize {
 
 	public static void main(String[] args) {
 		Assets.initialize();
-		SoundHandler.InitSound();
+		Sound.InitSound();
 		Game game = new Game();
 		game.start(); 
 		
