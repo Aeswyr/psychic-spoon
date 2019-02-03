@@ -16,6 +16,7 @@ public class Assets {
 	private static SpriteSheet s_beam;
 	private static SpriteSheet s_powerup;
 	private static SpriteSheet s_alien;
+	private static SpriteSheet s_alienMothership;
 	
 	public static Sprite blackTile;
 	public static Sprite starTile;
@@ -29,6 +30,7 @@ public class Assets {
 	public static Sprite battery;
 	public static Sprite superBoost;
 	public static Sprite alien;
+	public static Sprite alienMothership;
 	public static Sprite bassCannon;
 	public static Sprite pierceBeam;
 	public static Sprite scoreBoost;
@@ -57,6 +59,7 @@ public class Assets {
 		s_powerup = new SpriteSheet(ENTITY + "boost.png");
 		s_beam = new SpriteSheet(ENTITY + "shoot.png");
 		s_alien = new SpriteSheet(ENTITY + "alien.png");
+		s_alienMothership = new SpriteSheet(ENTITY + "alienMothership.png");
 		
 		blackTile = new Sprite(0, 0, 16, s_tile);
 		starTile = new Sprite(16, 0, 16, s_tile);
@@ -65,6 +68,7 @@ public class Assets {
 		ship = new Sprite(0, 0, 16, s_ship);
 		asteroid = new Sprite(0, 0, 32, s_asteroid);
 		alien = new Sprite(0, 0, 16, s_alien);
+		alienMothership = new Sprite(0, 0, 64, s_alienMothership);
 		
 		beam = new Sprite(0, 0, 16, s_beam);
 		superBeam = new Sprite(16, 0, 16, s_beam);

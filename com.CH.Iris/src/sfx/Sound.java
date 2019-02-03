@@ -46,7 +46,7 @@ public class Sound {
 		}
 	}
 
-	public void loop() {
+	public SoundInstance loop() {
 		
 		for (Clip c : clips) {
 			if (!c.isActive()) {
@@ -54,9 +54,12 @@ public class Sound {
 				instance.tagLooped();
 				loops.add(instance);
 				Sound.add(instance);
-				break;
+				return instance;
 			}
 		}
+		
+		return null;
+		
 	}
 
 	private static ArrayList<SoundInstance> loops;

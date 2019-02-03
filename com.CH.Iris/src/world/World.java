@@ -8,6 +8,7 @@ import entities.Asteroid;
 import entities.BassCannonPickup;
 import entities.Entity;
 import entities.EntityManager;
+import entities.MotherShip;
 import entities.PiercePickup;
 import entities.Power;
 import entities.Repair;
@@ -27,6 +28,7 @@ public class World {
 	SpaceShip ship;
 	int bottomline;
 	int lineNumber;
+	int n = 1;
 	
 	int nextAsteroid = 1;
 	int nextPowerup = 120;
@@ -68,6 +70,7 @@ public class World {
 			nextAsteroid = (int)(Math.random() * 30 + 1);
 			entityManager.add(new Asteroid(handler, (int)(Math.random() * 800), ship.getYPos() - 800));
 		}
+		
 		if (count % nextPowerup == 0) {
 			nextPowerup = (int)(Math.random() * 240 + 240);
 			
@@ -96,10 +99,20 @@ public class World {
 		
 		if (count % nextAlien == 0) {
 			nextAlien = (int)(Math.random() * 360 + 720);
+			
+			if (MotherShip.getSpawned() >= 1) {
+				nextAlien = (int)(Math.random() * 3 + 720);
+			}
+
 			entityManager.add(new Alien(handler, (int)(Math.random() * 800 - 48), ship.getYPos() - 800));
-			Assets.alienSound.play();
+
 		}
 		
+		if (MotherShip.getSpawned() < n && ship.getScore() >= 10000 * n) {
+			entityManager.add(new MotherShip(handler, 300, ship.getYPos() - 400));
+			System.out.println("Boss Spawned");
+			n++;
+		}
 		
 		count++;
 		updateTiles();

@@ -12,7 +12,7 @@ import utility.Hitbox;
 public class SpaceShip extends Entity{
 	
     private static int moveMent = 5;
-    private int lives = 2;
+    private int lives = 3;
     boolean fired = false;
     private int score;
     int fireBassCannon = 180;
@@ -120,8 +120,6 @@ public class SpaceShip extends Entity{
     			fireBassCannon = 1;
     			Assets.fireBeamSound.play();
     		}
-    		
-    		
     		
     		attacks.remove(0);
     		    		
