@@ -55,7 +55,6 @@ public class Alien extends Entity {
 		}
 		
 		
-		
 		this.yPos += ySpeed;
 		this.xPos += xSpeed;
 		this.hitbox.update();
