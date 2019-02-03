@@ -97,7 +97,6 @@ public class World {
 		if (count % nextAlien == 0) {
 			nextAlien = (int)(Math.random() * 360 + 720);
 			entityManager.add(new Alien(handler, (int)(Math.random() * 800 - 48), ship.getYPos() - 800));
-			Assets.alienSound.play();
 		}
 		
 		

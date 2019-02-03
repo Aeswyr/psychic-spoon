@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import game.Assets;
 import game.Game;
 import runtime.Handler;
+import sfx.SoundInstance;
 import utility.Hitbox;
 
 public class Alien extends Entity {
@@ -13,6 +14,7 @@ public class Alien extends Entity {
 	private int nextTrigger = (int)(Math.random() * 30) + 120;
 	private int xSpeed;
 	private int ySpeed;
+	SoundInstance instance;
 	
 	public Alien(Handler theHandler, int xPos, int yPos) {
         super.theHandler = theHandler;
@@ -26,6 +28,8 @@ public class Alien extends Entity {
         this.hitbox = new Hitbox(this, height * Game.GAMESCALE, width * Game.GAMESCALE, 0, 0);
         this.xSpeed = 0;
         this.ySpeed = 0;
+        
+		instance = Assets.alienSound.loop();
 	}
 
 	@Override
@@ -67,7 +71,9 @@ public class Alien extends Entity {
 	@Override
 	public void die() {
 		super.die();
+		instance.stopLoop();
 		Assets.explosionSound.play();
+		
 	}
 	
 }
